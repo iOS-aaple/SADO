@@ -14,6 +14,11 @@
 		3F60FA342952E711006DB0D9 /* SADOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F60FA332952E711006DB0D9 /* SADOTests.swift */; };
 		3F60FA3E2952E711006DB0D9 /* SADOUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F60FA3D2952E711006DB0D9 /* SADOUITests.swift */; };
 		3F60FA402952E711006DB0D9 /* SADOUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F60FA3F2952E711006DB0D9 /* SADOUITestsLaunchTests.swift */; };
+		3F60FA562952EBE3006DB0D9 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F60FA552952EBE3006DB0D9 /* Cart.swift */; };
+		3F60FA582952EC2D006DB0D9 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F60FA572952EC2D006DB0D9 /* Account.swift */; };
+		3F60FA5A2952EC58006DB0D9 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F60FA592952EC58006DB0D9 /* Details.swift */; };
+		3F60FA5C2952EC71006DB0D9 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F60FA5B2952EC71006DB0D9 /* Home.swift */; };
+		3F60FA5E2952EC86006DB0D9 /* Signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F60FA5D2952EC86006DB0D9 /* Signup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,11 @@
 		3F60FA392952E711006DB0D9 /* SADOUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SADOUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F60FA3D2952E711006DB0D9 /* SADOUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SADOUITests.swift; sourceTree = "<group>"; };
 		3F60FA3F2952E711006DB0D9 /* SADOUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SADOUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3F60FA552952EBE3006DB0D9 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		3F60FA572952EC2D006DB0D9 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		3F60FA592952EC58006DB0D9 /* Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Details.swift; sourceTree = "<group>"; };
+		3F60FA5B2952EC71006DB0D9 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		3F60FA5D2952EC86006DB0D9 /* Signup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +106,7 @@
 			children = (
 				3F60FA222952E70E006DB0D9 /* SADOApp.swift */,
 				3F60FA242952E70E006DB0D9 /* ContentView.swift */,
+				3F60FA542952EBCA006DB0D9 /* View */,
 				3F60FA262952E711006DB0D9 /* Assets.xcassets */,
 				3F60FA282952E711006DB0D9 /* Preview Content */,
 			);
@@ -125,6 +136,18 @@
 				3F60FA3F2952E711006DB0D9 /* SADOUITestsLaunchTests.swift */,
 			);
 			path = SADOUITests;
+			sourceTree = "<group>";
+		};
+		3F60FA542952EBCA006DB0D9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3F60FA552952EBE3006DB0D9 /* Cart.swift */,
+				3F60FA572952EC2D006DB0D9 /* Account.swift */,
+				3F60FA592952EC58006DB0D9 /* Details.swift */,
+				3F60FA5B2952EC71006DB0D9 /* Home.swift */,
+				3F60FA5D2952EC86006DB0D9 /* Signup.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +280,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F60FA5E2952EC86006DB0D9 /* Signup.swift in Sources */,
 				3F60FA252952E70E006DB0D9 /* ContentView.swift in Sources */,
+				3F60FA5A2952EC58006DB0D9 /* Details.swift in Sources */,
+				3F60FA582952EC2D006DB0D9 /* Account.swift in Sources */,
+				3F60FA562952EBE3006DB0D9 /* Cart.swift in Sources */,
+				3F60FA5C2952EC71006DB0D9 /* Home.swift in Sources */,
 				3F60FA232952E70E006DB0D9 /* SADOApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
