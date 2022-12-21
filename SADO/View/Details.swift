@@ -14,6 +14,7 @@ struct Details: View {
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("Hello, world!")
+            Text("HA")
         }
         .padding()
     }
