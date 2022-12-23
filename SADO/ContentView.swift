@@ -18,7 +18,7 @@ struct ContentView: View {
 //            Account()
 //        }
 //        .padding()
-        Cart()
+       
     }
 }
 
