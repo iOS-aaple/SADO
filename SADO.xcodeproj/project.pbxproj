@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F2D1FD42954196A001B39FF /* AddNewAdderss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D1FD329541969001B39FF /* AddNewAdderss.swift */; };
+		3F2E70582954EA99007DFA37 /* Checkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E70572954EA99007DFA37 /* Checkout.swift */; };
 		3F60FA232952E70E006DB0D9 /* SADOApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F60FA222952E70E006DB0D9 /* SADOApp.swift */; };
 		3F60FA252952E70E006DB0D9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F60FA242952E70E006DB0D9 /* ContentView.swift */; };
 		3F60FA272952E711006DB0D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F60FA262952E711006DB0D9 /* Assets.xcassets */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F2D1FD329541969001B39FF /* AddNewAdderss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAdderss.swift; sourceTree = "<group>"; };
+		3F2E70572954EA99007DFA37 /* Checkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkout.swift; sourceTree = "<group>"; };
 		3F60FA1F2952E70E006DB0D9 /* SADO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SADO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F60FA222952E70E006DB0D9 /* SADOApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SADOApp.swift; sourceTree = "<group>"; };
 		3F60FA242952E70E006DB0D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -146,6 +150,8 @@
 				3F60FA592952EC58006DB0D9 /* Details.swift */,
 				3F60FA5B2952EC71006DB0D9 /* Home.swift */,
 				3F60FA5D2952EC86006DB0D9 /* Signup.swift */,
+				3F2D1FD329541969001B39FF /* AddNewAdderss.swift */,
+				3F2E70572954EA99007DFA37 /* Checkout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -283,10 +289,12 @@
 				3F60FA5E2952EC86006DB0D9 /* Signup.swift in Sources */,
 				3F60FA252952E70E006DB0D9 /* ContentView.swift in Sources */,
 				3F60FA5A2952EC58006DB0D9 /* Details.swift in Sources */,
+				3F2E70582954EA99007DFA37 /* Checkout.swift in Sources */,
 				3F60FA582952EC2D006DB0D9 /* Account.swift in Sources */,
 				3F60FA562952EBE3006DB0D9 /* Cart.swift in Sources */,
 				3F60FA5C2952EC71006DB0D9 /* Home.swift in Sources */,
 				3F60FA232952E70E006DB0D9 /* SADOApp.swift in Sources */,
+				3F2D1FD42954196A001B39FF /* AddNewAdderss.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
