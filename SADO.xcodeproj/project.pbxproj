@@ -19,6 +19,7 @@
 		3F60FA5A2952EC58006DB0D9 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F60FA592952EC58006DB0D9 /* Details.swift */; };
 		3F60FA5C2952EC71006DB0D9 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F60FA5B2952EC71006DB0D9 /* Home.swift */; };
 		3F60FA5E2952EC86006DB0D9 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F60FA5D2952EC86006DB0D9 /* SignUp.swift */; };
+		3F8026E529564DA300549CB3 /* Checkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8026E429564DA300549CB3 /* Checkout.swift */; };
 		8479769E2954EAAF002799B1 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479769D2954EAAF002799B1 /* Login.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		3F60FA592952EC58006DB0D9 /* Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Details.swift; sourceTree = "<group>"; };
 		3F60FA5B2952EC71006DB0D9 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		3F60FA5D2952EC86006DB0D9 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		3F8026E429564DA300549CB3 /* Checkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkout.swift; sourceTree = "<group>"; };
 		8479769D2954EAAF002799B1 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +151,7 @@
 				3F60FA5B2952EC71006DB0D9 /* Home.swift */,
 				3F60FA5D2952EC86006DB0D9 /* SignUp.swift */,
 				8479769D2954EAAF002799B1 /* Login.swift */,
+				3F8026E429564DA300549CB3 /* Checkout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				3F60FA5E2952EC86006DB0D9 /* SignUp.swift in Sources */,
 				3F60FA252952E70E006DB0D9 /* ContentView.swift in Sources */,
 				3F60FA5A2952EC58006DB0D9 /* Details.swift in Sources */,
+				3F8026E529564DA300549CB3 /* Checkout.swift in Sources */,
 				3F60FA582952EC2D006DB0D9 /* Account.swift in Sources */,
 				3F60FA562952EBE3006DB0D9 /* Cart.swift in Sources */,
 				3F60FA5C2952EC71006DB0D9 /* Home.swift in Sources */,
