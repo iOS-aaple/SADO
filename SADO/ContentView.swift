@@ -19,7 +19,9 @@ struct ContentView: View {
 //        }
 //        .padding()
         //Home()
-        Login()
+        Details()
+//        Login()
+        
     }
 }
 
