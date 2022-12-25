@@ -10,62 +10,56 @@ import SwiftUI
 struct Details: View {
     
     // vars
-    var itemName : String = ""
-    var description : String = ""
-    var itemPrice : String = ""
-    var itemCount : Int = 0
+    @State var itemdescription : String = ""
+    @State var itemPhoto : String = ""
+    @State var itemName : String = ""
+    @State var itemPrice : String = ""
+    @State var itemRate : String = ""
+    
+    @State var itemCount : Int = 0
     
     var body: some View {
         NavigationView{
             ZStack {
             VStack(){
-            imageView()
+                imageView(itemName: $itemName, itemPhoto: $itemPhoto)
+            Divider()
+            
+                itemDescription(itemName: $itemName, itemDescription: $itemdescription, itemRate: $itemRate)
             Divider()
             .padding(20)
-            itemDescription()
-            Divider()
-            .padding(20)
-            outlineView()
+                outlineView(itemCount: $itemCount, itemPrice: $itemPrice)
             Divider()
             .padding(20)
         }
     }
-    .padding([.top , .leading , .trailing , .bottom ], 20)
-    .frame(maxWidth: .infinity , maxHeight: .infinity)
-    .background(Image("background") .resizable() .scaledToFill() .edgesIgnoringSafeArea([.top , .bottom , .leading , .trailing]) )
-        // opacity was 0.8 , not sure about it
+
+    .frame(width: UIScreen.main.bounds.width , height: UIScreen.main.bounds.height)
+    .background(Image("background3") .resizable() .scaledToFill()
+        .edgesIgnoringSafeArea([.top , .bottom , .leading , .trailing]) )
+        
         }
        
     }
 }
 
 struct imageView : View {
+    
+    @Binding var itemName : String
+    @Binding var itemPhoto : String
     var body : some View {
         ZStack(alignment: .topLeading){
      
             
-            Image("برياني دجاج") // item image
+            Image(itemPhoto) // item image
                 .resizable()
                 .foregroundColor(Color.white)
-                .padding(10)
+                .cornerRadius(40)
+                .padding(50)
+            
+            HStack(alignment: .center){
                 
-            HStack{
-                
-                Button(action: {
-                // back
-                }, label: {
-                Text("Back")
-                .foregroundColor(Color.red)
-                .frame(width: 70 , height: 50)
-                .background(Color(red: 196/255, green: 181/255, blue: 162/255).opacity(0.8))
-                .cornerRadius(20)
-                .padding(10)
-                })
-                
-                
-                
-                Spacer()
-                Text("Chicken Baryani") // item name
+                Text("\(itemName)") // item name
                 .font(Font.custom("SignPainter", size: 30))
                 .foregroundColor(Color(red: 196/255, green: 181/255, blue: 162/255))
                 .padding(20)
@@ -73,27 +67,30 @@ struct imageView : View {
             
            
         }
-        .frame(width: 350 , height: 300)
-
-
+        .frame(width: 350 , height: 350)
+        .cornerRadius(40)
+        
     }
 }
 
 
 struct itemDescription : View {
+    @Binding var itemName :String
+    @Binding var itemDescription : String
+    @Binding var itemRate : String
     var body: some View{
         VStack(alignment: .center){
-        Text("Chicken Baryani\n")
+            Text("\(itemName)\n")
         .foregroundColor(Color(red: 196/255, green: 181/255, blue: 162/255))
         .font(Font.custom("SignPainter", size: 30))
             
-        Text(" Item_ description Item  Item_ description Item_ description Item_ description Item_mdkmcdn mpcdlmxsms msxmo description\n")
+        Text("\(itemDescription)\n")
         .font(.system(size: 15, design: .serif))
         .foregroundColor(Color(red: 196/255, green: 181/255, blue: 162/255))
         .multilineTextAlignment(.center)
         .padding([.leading , .trailing] , 30)
         
-        Text("★★★☆☆")
+        Text("\(itemRate)")
         .foregroundColor(Color(red: 196/255, green: 181/255, blue: 162/255))
 
         }
@@ -104,6 +101,8 @@ struct itemDescription : View {
 }
 
 struct outlineView :View {
+    @Binding var itemCount : Int
+    @Binding var itemPrice : String
     var body: some View{
         ZStack(alignment: .leading){
             HStack{
@@ -112,7 +111,7 @@ struct outlineView :View {
                     .font(.system(size: 15, design: .serif))
                     .foregroundColor(Color(red: 196/255, green: 181/255, blue: 162/255))
                     
-                    Text("160 SAR")
+                    Text("\(itemPrice)")
                         .bold()
                     .foregroundColor(Color(red: 196/255, green: 181/255, blue: 162/255))
                     .font(.system(size: 18, design: .serif))
@@ -124,14 +123,12 @@ struct outlineView :View {
                     .foregroundColor(Color(red: 196/255, green: 181/255, blue: 162/255))
                     .font(.system(size: 12, design: .serif))
                     
-                    Button(action: {
-                    // this button take you into the cart view
-                    }, label: {
-                    Image(systemName: "cart.badge.plus")
-                    .resizable()
-                    .foregroundColor(Color(red: 196/255, green: 181/255, blue: 162/255))
-                    .frame(width: 40 , height: 30)
-                    })
+                    NavigationLink(destination: Cart()){
+                        Image(systemName: "cart.badge.plus")
+                        .resizable()
+                        .foregroundColor(Color(red: 196/255, green: 181/255, blue: 162/255))
+                        .frame(width: 40 , height: 30)
+                    }
                 }
                 .padding(10)
 
@@ -139,19 +136,20 @@ struct outlineView :View {
                 HStack{
                     
                     Button(action: {
-                    // this button increases the count of this selected item
-
+                    itemCount += 1
                     }, label: {
                     Image(systemName: "plus")
                     .foregroundColor(Color.black)
                     })
                     
-                    Text("3")
+                    Text("\(itemCount)")
                     .bold()
                     .foregroundColor(Color(red: 196/255, green: 181/255, blue: 162/255))
                     
                     Button(action: {
-                    // this button decreases the count of this selected item
+                    if itemCount > 0 {
+                        itemCount -= 1
+                    }
                     }, label: {
                     Image(systemName: "minus")
                     .foregroundColor(Color.black)
