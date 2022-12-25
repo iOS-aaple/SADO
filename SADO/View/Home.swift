@@ -49,6 +49,8 @@ struct Data: Identifiable {
     let name: String
     let show: Bool
     let price: String
+    let rate : String
+    let description : String
 }
 
 struct HeadView: View {
@@ -225,9 +227,10 @@ struct HomeView: View {
                                           
                                             NavigationLink (
                                                 destination:
-                                                    Details()
+                                                    Details(itemdescription: menu.description ,itemPhoto: menu.img, itemName: menu.name, itemPrice: menu.price, itemRate: menu.rate)
+//                                                Text(menu.name)
                                                     , label: {
-                                                        MenuCards(image:Image( menu.img), name: menu.name, price: menu.price)
+                                                    MenuCards(image:Image( menu.img), name: menu.name, price: menu.price)
                                                     })
                                             .foregroundColor(.black)
                                         }
@@ -294,23 +297,39 @@ struct HomeView: View {
         }
     }
     @State var menu: [Data] = [
-        Data(id: 0, img: "1", name: "Chicken Kabsah", show: false, price: "50 SAR"),
-        Data(id: 1, img: "2", name: "Bukhari", show: false, price: "55 SAR"),
-        Data(id: 2, img: "3", name: "Meat Biryani", show: false, price: "60 SAR"),
-        Data(id: 3, img: "4", name: "Chicken Biryani", show: false, price: "50 SAR"),
-        Data(id: 4, img: "5", name: "Hashi", show: false, price: "120 SAR"),
-        Data(id: 5, img: "6", name: "Meat Mandi", show: false, price: "60 SAR"),
-        Data(id: 6, img: "7", name: "Saudi Coffee \n with Dates", show: false, price: "30 SAR"),
-        Data(id: 7, img: "8", name: "Um Ali", show: false, price: "30 SAR"),
-        Data(id: 8, img: "9", name: "Qatayef", show: false, price: "30 SAR"),
-        Data(id: 9, img: "10", name: "Ma'amoul", show: false, price: "25 SAR"),
-        Data(id: 10, img: "11", name: "Kunafah", show: false, price: "30 SAR"),
-        Data(id: 11, img: "12", name: "", show: false, price: "3 SAR"),
-        Data(id: 12, img: "13", name: "", show: false, price: "1.5 SAR"),
+        Data(id: 0, img: "1", name: "Chicken Kabsah", show: false, price: "50 SAR" , rate: "★★★★☆" ,
+             description: "The traditional saudi chicken with rice , spiced by Kabsa Spices، garnished with nuts and raisins" ),
+        Data(id: 1, img: "2", name: "Bukhari", show: false, price: "55 SAR" , rate: "★★★★☆" ,
+             description: "Chicken with Bukhari rice, made in the Afghan way, pressented with grilled chicken"),
+        Data(id: 2, img: "3", name: "Meat Biryani", show: false, price: "60 SAR" , rate: "★★★☆☆" ,
+             description: "Meat with rice, made in the Indian way, riched in Indian spices and ginger flavour"),
+        Data(id: 3, img: "4", name: "Chicken Biryani", show: false, price: "50 SAR" , rate: "★★★★☆" ,
+             description: "Chicken with rice, made in the Indian way, riched in Indian spices and ginger flavour" ),
+        Data(id: 4, img: "5", name: "Hashi", show: false, price: "120 SAR" , rate: "★★★☆☆" ,
+             description: "Hashi meat with Bashawer rice, garnished with fried crispy onion"),
+        Data(id: 5, img: "6", name: "Meat Mandi", show: false, price: "60 SAR", rate: "★★★☆☆" ,
+             description: "Hasawi Meat with rice, cooked in an underground oven, riched with palm frond flavor"),
+        Data(id: 6, img: "7", name: "Saudi Coffee \n with Dates", show: false, price: "30 SAR" , rate: "★★★★★" ,
+             description: " The traditional Arabic coffee, presented with Dates stuffed with nuts"),
+        Data(id: 7, img: "8", name: "Um Ali", show: false, price: "30 SAR" , rate: "★★★★★" ,
+             description: "Baked Puff pastry, blended with nuts, raisins and milk , coverd with cream and sprinkled with cinnamon"),
+        Data(id: 8, img: "9", name: "Qatayef", show: false, price: "30 SAR", rate: "★★★☆☆" ,
+             description: "Sweet dumpling filled with cream or nuts."),
+        Data(id: 9, img: "10", name: "Ma'amoul", show: false, price: "25 SAR", rate: "★★★☆☆" ,
+             description: "Butter cookie, filled with Date or nuts"),
+        Data(id: 10, img: "11", name: "Kunafah", show: false, price: "30 SAR", rate: "★★★★☆" ,
+             description: "Fresh spun pastry, layered with cheese or cream , garnished with crushed pistachio "),
+        Data(id: 11, img: "12", name: "SoftDrinks", show: false, price: "3 SAR", rate: "★★★★★" ,
+             description: "Any soft drink of your choice"),
+        Data(id: 12, img: "13", name: "Water", show: false, price: "1.5 SAR", rate: "★★★★★" ,
+             description: "600 ML bottle"),
     ]
     @State var mostOrdered: [Data] = [
-        Data(id: 3, img: "4", name: "Chicken Biryani", show: false, price: "50 SAR"),
-        Data(id: 2, img: "8", name: "Um Ali", show: false, price: "30 SAR"),
-        Data(id: 5, img: "6", name: "Meat Mandi", show: false, price: "60 SAR"),
+        Data(id: 3, img: "4", name: "Chicken Biryani", show: false, price: "50 SAR" , rate: "★★★★☆" ,
+             description: "Chicken with rice, made in the Indian way, riched in Indian spices and ginger flavour"),
+        Data(id: 2, img: "8", name: "Um Ali", show: false, price: "30 SAR" , rate: "★★★★★" ,
+             description: "Baked Puff pastry, blended with nuts, raisins and milk , coverd with cream and sprinkled with cinnamon"),
+        Data(id: 5, img: "6", name: "Meat Mandi", show: false, price: "60 SAR", rate: "★★★★☆" ,
+             description: "Hasawi Meat with rice, cooked in an underground oven, riched with palm frond flavor"),
     ]
 }
