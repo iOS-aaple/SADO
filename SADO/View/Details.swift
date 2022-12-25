@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+struct Details_Previews: PreviewProvider {
+    static var previews: some View {
+        Home()
+    }
+}
+
 struct Details: View {
     
     // vars
@@ -27,10 +33,10 @@ struct Details: View {
             
                 itemDescription(itemName: $itemName, itemDescription: $itemdescription, itemRate: $itemRate)
             Divider()
-            .padding(20)
+//            .padding(20)
                 outlineView(itemCount: $itemCount, itemPrice: $itemPrice)
             Divider()
-            .padding(20)
+//            .padding(20)
         }
     }
 
@@ -53,9 +59,12 @@ struct imageView : View {
             
             Image(itemPhoto) // item image
                 .resizable()
+                .frame(width: 220, height: 300)
+//                .padding(.top, -40)
                 .foregroundColor(Color.white)
                 .cornerRadius(40)
-                .padding(50)
+                .padding(.top)
+                .padding([.leading, .trailing, .bottom], 50)
             
             HStack(alignment: .center){
                 
@@ -64,7 +73,6 @@ struct imageView : View {
                 .foregroundColor(Color(red: 196/255, green: 181/255, blue: 162/255))
                 .padding(20)
             }
-            
            
         }
         .frame(width: 350 , height: 350)

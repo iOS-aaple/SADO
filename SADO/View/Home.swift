@@ -58,18 +58,18 @@ struct HeadView: View {
        
             HStack{
                 Button(action: {}){
-                    Image(systemName: "person.crop.circle")
+                    Image( "food-service")
                         .resizable()
                         .padding()
                         .accentColor(.gray)
-                        .frame(width: 60,height: 60)
+                        .frame(width: 70,height: 70)
                 }
                 Spacer()
 
                 Image("tent")
                     .resizable()
                     .frame(width: 42,height: 42)
-                    .background(.gray).opacity(0.8)
+//                    .background(.gray).opacity(0.8)
                     .cornerRadius(15)
             }
             .padding(.horizontal)
@@ -83,12 +83,15 @@ struct HeadView: View {
 
 struct HeadTitle: View {
     var body: some View {
-        Text("Find The \nBest ")
-            .font(.system(size: 30, weight: .regular, design: .serif))
+        VStack {
+            Text("Find The \nBest ")
+                .font(.system(size: 30, weight: .regular, design: .serif))
+                .foregroundColor(.white)
+            + Text("Dishes!")
+                .font(.system(size: 30, weight: .bold, design: .serif))
             .foregroundColor(.white)
-        + Text("Dishes!")
-            .font(.system(size: 30, weight: .bold, design: .serif))
-            .foregroundColor(.white)
+        }
+        .padding(.leading, -180)
     }
 }
 
@@ -169,7 +172,7 @@ struct MenuCards: View {
     }
 }
 
-struct TapBar: View {
+struct TabBar: View {
     let image: Image
     let action: () -> Void
     var body: some View {
@@ -243,7 +246,7 @@ struct HomeView: View {
                                 .padding(-10)
                                 
                                 VStack {
-                                    Text("Most Ordered")
+                                    Text("Best Seller:")
                                         .font(.system(size: 38, design: .serif))
                                         .padding(.trailing, 140)
                                         .foregroundColor(.white)
@@ -275,12 +278,12 @@ struct HomeView: View {
                 
                 // MARK: - tap Bar
                 HStack {
-                    TapBar(image: Image(systemName: "house")) {}
+                    TabBar(image: Image(systemName: "house")) {}
                     NavigationLink (
                     destination:
                         Cart()
                     , label: {
-                        TapBar(image: Image( "wallet")) {}
+                        TabBar(image: Image( "wallet")) {}
                     })
                   
                    
