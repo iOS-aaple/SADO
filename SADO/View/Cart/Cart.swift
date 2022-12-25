@@ -24,7 +24,7 @@ struct Cart: View {
     var body: some View {
         
         NavigationView{
-           
+            
             VStack{
                 List{
                     ForEach(cartItems) { item in
@@ -72,7 +72,8 @@ struct ItemCell: View {
         ZStack {
 
             RoundedRectangle(cornerRadius: 10)
-                .fill( Color(red: 196/255, green: 181/255, blue: 162/255).opacity(0.6))
+//                .fill( .background(Image("background4")))
+                .fill( Color(red: 90/255, green: 90/255, blue: 90/255).opacity(0.6))
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .padding(.horizontal, 4)
                 .shadow(color: Color.black, radius: 3, x: 3, y: 3)
@@ -88,8 +89,11 @@ struct ItemCell: View {
                 }
                 Spacer()
                 Button("+"){}
+                    .foregroundColor(.white)
                 Text("2")
+                    .foregroundColor(.white)
                 Button("-"){}
+                    .foregroundColor(.white)
             }.padding(.all)
         }
     }
@@ -103,24 +107,37 @@ struct TotalAmount: View {
             VStack{
                 HStack{
                     Text("Sub Total")
+                        .foregroundColor(.gray)
                     Spacer()
                     Text("200 SR")
+                        .foregroundColor(.gray)
                 }.padding(.bottom,10)
                 HStack{
                     Text("Fee and Delivery")
+                        .foregroundColor(.gray)
                     Spacer()
                     Text("50 SR")
+                        .foregroundColor(.gray)
                 }.padding(.bottom,10)
                 Divider()
                 HStack{
                     Text("Total Price")
+                        .foregroundColor(.gray)
                     Spacer()
                     Text("250 SR")
+                        .foregroundColor(.gray)
                 }.padding(.bottom,10)
             }
             .padding(.all)
             
-        } .background(Color(red: 196/255, green: 181/255, blue: 162/255).opacity(0.6))
+            
+        }
+//        .background(Color(red: 196/255, green: 181/255, blue: 162/255).opacity(0.6))
+        .background(
+               Image("background4")
+                   .resizable()
+                   .opacity(0.4)
+           )
             .cornerRadius(20)
             .padding(.all)
         
@@ -128,7 +145,16 @@ struct TotalAmount: View {
                 color: .primary,
                 radius: CGFloat(4),
                 x: CGFloat(0), y: CGFloat(0))
+            .padding(.bottom, 55)
+          
     }
+    init() {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.backgroundColor = .clear
+        appearance.shadowColor = .clear
+        UINavigationBar.appearance().standardAppearance = appearance
+     }
 }
 
 
