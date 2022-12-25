@@ -9,16 +9,16 @@ import Foundation
 import SwiftUI
 
 // MARK: - data for menu and dtails
-struct Data: Identifiable {
-    let id : Int
-    let img: String
-    let name: String
-    let show: Bool
-    let price: String
-    let rate : String
-    let category : String
-    let description : String
-}
+//struct Data: Identifiable {
+//    let id : Int
+//    let img: String
+//    let name: String
+//    let show: Bool
+//    let price: String
+//    let rate : String
+//    let category : String
+//    let description : String
+//}
 //MARK: - head bar for logo
 struct HeadView: View {
     var body: some View {
@@ -76,6 +76,7 @@ struct TabBar: View {
 struct CategoryView: View {
     let isActive: Bool
     let text: String
+    @State var category:String = "All"
     var body: some View {
         VStack(alignment: .center, spacing: 0){
            
@@ -84,9 +85,12 @@ struct CategoryView: View {
                 .frame(width: 300)
                 .foregroundColor(isActive ? Color(.black): Color.gray)
             if (isActive) {
-                Color(.black)
+                Color(.red)
                       .frame(width: 25, height: 3)
 //                      .clipShape(Capsule())
+               // DisplayMnue(selectedCategory: $category)
+                      
+//
             }
               
         }

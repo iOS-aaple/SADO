@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Details_Previews: PreviewProvider {
     static var previews: some View {
-        Home()
+        Details()
     }
 }
 
@@ -131,7 +131,7 @@ struct outlineView :View {
                     .foregroundColor(Color(red: 196/255, green: 181/255, blue: 162/255))
                     .font(.system(size: 12, design: .serif))
                     
-                    NavigationLink(destination: Cart()){
+                    NavigationLink(destination: Cart().navigationBarBackButtonHidden(true)){
                         Image(systemName: "cart.badge.plus")
                         .resizable()
                         .foregroundColor(Color(red: 196/255, green: 181/255, blue: 162/255))
