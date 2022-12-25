@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>519497464191-0h8q665hgu4m2l9kg5hmu9krifs23pfq.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.519497464191-0h8q665hgu4m2l9kg5hmu9krifs23pfq</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDPAdj9O4pwShEoOCmmHSZ3wFCRA6-i4Ow</string>
+	<key>GCM_SENDER_ID</key>
+	<string>519497464191</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Aamer-Essa.SADO</string>
+	<key>PROJECT_ID</key>
+	<string>sado-b3ddd</string>
+	<key>STORAGE_BUCKET</key>
+	<string>sado-b3ddd.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:519497464191:ios:054e63355b4909ba41424a</string>
+</dict>
+</plist>
