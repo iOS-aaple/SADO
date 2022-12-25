@@ -16,6 +16,7 @@ struct Data: Identifiable {
     let show: Bool
     let price: String
     let rate : String
+    let category : String
     let description : String
 }
 //MARK: - head bar for logo
@@ -154,10 +155,10 @@ struct Menu: View {
             Image(data.img)
                 .resizable()
                 .frame(width: UIScreen.main.bounds.width - 30, height: data.show ? 460 : 400)
-            Text(data.name)
-                .fontWeight(.bold)
-                .padding(.vertical, 13)
-                .padding(.leading)
+//            Text(data.name)
+//                .fontWeight(.bold)
+//                .padding(.vertical, 13)
+//                .padding(.leading)
         }
         .cornerRadius(25)
     }
