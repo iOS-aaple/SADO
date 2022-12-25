@@ -14,8 +14,6 @@ struct Home: View {
             HomeView()
         }
     }
-   
-   
 }
 
 struct Home_Previews: PreviewProvider {
@@ -24,180 +22,18 @@ struct Home_Previews: PreviewProvider {
     }
 }
 
-
-
-
-struct Menu: View {
-    var data : Data
-    var body: some View {
-        VStack(alignment: .leading, spacing: 0){
-            Image(data.img)
-                .resizable()
-                .frame(width: UIScreen.main.bounds.width - 30, height: data.show ? 460 : 400)
-            Text(data.name)
-                .fontWeight(.bold)
-                .padding(.vertical, 13)
-                .padding(.leading)
-        }
-        .cornerRadius(25)
-    }
-}
-
-struct Data: Identifiable {
-    let id : Int
-    let img: String
-    let name: String
-    let show: Bool
-    let price: String
-    let rate : String
-    let description : String
-}
-
-struct HeadView: View {
-    var body: some View {
-       
-            HStack{
-                Button(action: {}){
-                    Image( "food-service")
-                        .resizable()
-                        .padding()
-                        .accentColor(.gray)
-                        .frame(width: 70,height: 70)
-                }
-                Spacer()
-
-                Image("tent")
-                    .resizable()
-                    .frame(width: 42,height: 42)
-//                    .background(.gray).opacity(0.8)
-                    .cornerRadius(15)
-            }
-            .padding(.horizontal)
-            .frame(width: 400)
-        .padding(.top, 50)
-      
-       
-    }
-        
-}
-
-struct HeadTitle: View {
-    var body: some View {
-        VStack {
-            Text("Find The \nBest ")
-                .font(.system(size: 30, weight: .regular, design: .serif))
-                .foregroundColor(.white)
-            + Text("Dishes!")
-                .font(.system(size: 30, weight: .bold, design: .serif))
-            .foregroundColor(.white)
-        }
-        .padding(.leading, -180)
-    }
-}
-
-struct SearchView: View {
-    @State var search = ""
-    var body: some View {
-        HStack{
-            HStack{
-                Image(systemName: "magnifyingglass")
-                    .foregroundColor(.gray)
-                    .padding(.trailing, 8)
-                TextField("", text: $search)
-            }
-            .padding()
-            .background(RoundedRectangle(cornerRadius: 25,style: .continuous).fill(Color.gray.opacity(0.12)))
-            .padding(.horizontal)
-            .frame(width: 340)
-        }
-    }
-}
-
-struct CategoryView: View {
-    let isActive: Bool
-    let text: String
-    var body: some View {
-        VStack(alignment: .center, spacing: 0){
-           
-            Text(text)
-                .font(.system(size: 25, design: .serif))
-                .frame(width: 300)
-                .foregroundColor(isActive ? Color(.black): Color.gray)
-//                .padding(.trailing)
-            
-            if (isActive) {
-                Color(.black)
-                      .frame(width: 25, height: 3)
-                      .clipShape(Capsule())
-            }
-              
-        }
-     
-    }
-}
-
-struct MenuCards: View {
-    let image: Image
-    let name: String
-    let price: String
-    var body: some View {
-        VStack{
-            
-            GeometryReader { geometry in
-                ZStack(alignment: .bottom){
-                    
-                   image
-                        .resizable()
-                        .frame(width: 190, height: 300)
-                        .cornerRadius(20)
-                        .rotation3DEffect(Angle(degrees: getPercentage(geo: geometry) * 10), axis: (x: 1.0, y: 1.0, z: 0.0))
-                    VStack{
-                        Text(name)
-                            .font(.system(size: 20, weight: .regular, design: .serif))
-                            .shadow(radius: 0.9)
-                            .padding(-15)
-                        Text(price)
-                            .padding()
-                    }
-                }
-            }
-            
-            .frame(width: 500,height: 500)
-        }
-    }
-    func getPercentage(geo: GeometryProxy) -> Double {
-        let maxDistance = UIScreen.main.bounds.width / 2
-        let currentX = geo.frame(in: .global).midX
-        return Double(1 - (currentX / maxDistance))
-    }
-}
-
-struct TabBar: View {
-    let image: Image
-    let action: () -> Void
-    var body: some View {
-        Button(action: action, label: {
-           image
-                .resizable()
-                .accentColor(.black)
-                .frame(width: 35,height: 30)
-                .frame(maxWidth: 150)
-            
-        })
-    }
-       
-}
-
 struct HomeView: View {
-    private let categories = ["All", "Chicken", "Meat", "Desserts", "Drinks"]
+    private let categories = [" ","All", "Chicken", "Meat", "Desserts", "Drinks"]
     @State private var selectedIndex: Int = 1
     var body: some View {
         NavigationView {
             ZStack{
-                Image("background2")
+                Image("background3")
+                    .resizable()
                     .edgesIgnoringSafeArea(.all)
+                    
                 //                .scaledToFit()
-                //MARK: - category + mune + most ordered
+            
                 ScrollView {
                     VStack{
                         HeadView()
@@ -206,7 +42,7 @@ struct HomeView: View {
                             .padding()
                         SearchView()
                         
-                        // MARK: - card dishes
+                        // MARK: - Category
                         VStack {
                             ScrollView (.horizontal, showsIndicators: false) {
                                 HStack ( spacing: -200){
@@ -217,15 +53,15 @@ struct HomeView: View {
                                     }
                                     
                                 }
-                                .frame(minWidth: 1000)
-                                .padding()
+                                .frame(minWidth: 0)
+                                .padding(.leading, -200)
                             }
                             .padding()
                             VStack{
-                                
+                                // MARK: - cards dishes
                                 ScrollView (.horizontal, showsIndicators: false) {
                                     //                    HStack {
-                                    HStack(spacing: -1000){
+                                    HStack(spacing: -1015){
                                         ForEach(menu) { menu in
                                           
                                             NavigationLink (
@@ -240,10 +76,10 @@ struct HomeView: View {
                                         .frame(width: 1200)
                                         .padding(.trailing)
                                     }
-                                    .padding(.bottom,-130)
+//                                    .padding(.bottom,1090)
                                     .padding(.leading)
                                 }
-                                .padding(-10)
+                                .padding(.leading, -320)
                                 
                                 VStack {
                                     Text("Best Seller:")
@@ -256,37 +92,54 @@ struct HomeView: View {
                                         HStack(spacing: -1000){
                                             
                                             ForEach(mostOrdered) { i in
-                                                MenuCards(image:Image( i.img), name: i.name, price: i.price)
-                                                
-                                            }
+                                                NavigationLink (
+                                                    destination:
+                                                        Details(itemdescription: i.description ,itemPhoto: i.img, itemName: i.name, itemPrice: i.price, itemRate: i.rate)
+    //                                                Text(menu.name)
+                                                        , label: {
+                                                        MenuCards(image:Image( i.img), name: i.name, price: i.price)
+                                                        })                                            }
                                             .frame(width: 1200)
-                                            //
+                                            
                                         }
                                         
-                                        .padding(.leading)
+                                        .padding(.leading, -300)
+                                      
                                     }
-                                    
+                                 
                                 }
+                                .padding(.top, -150)
                             }
                         }
                         
                         
                     }
                     .padding(-19)
+                    .padding(.top, -1100)
                     .frame(height: 2330)
+                    .padding(.bottom, -1100)
                 }
                 
-                // MARK: - tap Bar
+                // MARK: - tab Bar
                 HStack {
-                    TabBar(image: Image(systemName: "house")) {}
+                    NavigationLink (
+                                      destination:
+                                        Account()
+                                      , label: {
+                                          TabBar(image: Image(systemName: "person.crop.circle"))
+                                            
+                                      })
+                    TabBar(image: Image(systemName: "house"))
                     NavigationLink (
                     destination:
                         Cart()
                     , label: {
-                        TabBar(image: Image( "wallet")) {}
+                        TabBar(image: Image( "wallet"))
                     })
                   
-                   
+//                    NavigationLink(destination: Cart()){
+//                        TabBar(image: Image( "wallet")) {}
+//                    }
                     
                     
                 }
@@ -295,7 +148,7 @@ struct HomeView: View {
                 .clipShape(Capsule())
                 .padding()
                 .shadow(color: Color.black.opacity(0.9), radius: 8, x: 2, y: 6)
-                .frame(maxHeight: 800, alignment: .bottom)
+                .frame(maxWidth: 340,maxHeight: 800, alignment: .bottom)
             }
         }
     }
