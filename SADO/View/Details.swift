@@ -14,7 +14,7 @@ struct Details_Previews: PreviewProvider {
 }
 
 struct Details: View {
-    
+    // check check 
     // vars
     @State var itemdescription : String = ""
     @State var itemPhoto : String = ""
