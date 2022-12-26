@@ -9,11 +9,12 @@ import SwiftUI
     
 struct Cart: View {
     init(){
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor:UIColor.white]
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         UINavigationBar.appearance().backgroundColor = UIColor.clear
         
+        
     }
-    @State var value : String = "amer"
+  
     var cartItems = [
         Item(id: 0, itemName: "aa"),
         Item(id: 1, itemName: "AAA"),
@@ -39,14 +40,24 @@ struct Cart: View {
                 TotalAmount()
                 
                 Spacer()
-                NavigationLink(destination: Checkout()) {
-                                    Text("Checkout")
-                                }
-                                  .padding()
-                                  .background(Color(red: 241, green: 247, blue: 247))
-                                  .clipShape(Capsule())
-                                  .foregroundColor(Color.black)
-                                  
+                HStack{
+                    NavigationLink(destination: Checkout().navigationBarBackButtonHidden(true)) {
+                        Text("Checkout")
+                    }
+                    .padding()
+                    .background(Color(red: 241, green: 247, blue: 247))
+                    .clipShape(Capsule())
+                    .foregroundColor(Color.black)
+                    
+                    NavigationLink(destination: Home().navigationBarBackButtonHidden(true)) {
+                        Text("Cancel")
+                    }
+                    .padding()
+                    .background(Color(red: 1, green: 0, blue: 0))
+                    .clipShape(Capsule())
+                    .foregroundColor(Color.black)
+                    
+                }
             }
             .background(  Image("background2")
                             .resizable()
@@ -54,6 +65,7 @@ struct Cart: View {
                             .edgesIgnoringSafeArea(.all))
                  
         .navigationBarTitle(Text("My Cart"))
+            
         }
     }
 }

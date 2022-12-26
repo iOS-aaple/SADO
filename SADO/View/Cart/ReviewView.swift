@@ -24,7 +24,6 @@ struct ReviewView: View {
     var body: some View{
         VStack(alignment: .leading){
             conformSteps(currentStep: $cuurentStep)
-            Text("Address")
             DeliveryDetails(fullName: $fullName, country: $country, city: $city, street: $street, postCode: $postCode, phoneNumber: $phoneNumber)
             Spacer()
             PaymentDetails(creditCardName: $creditCardName, creditCardNumber: $creditCardNumber, creditCardExDate: $creditCardExDate)
@@ -33,7 +32,7 @@ struct ReviewView: View {
             
             
             
-        }.background(  Image("background")
+        }.background(  Image("background3")
             .resizable()
             .aspectRatio(contentMode: .fill)
             .edgesIgnoringSafeArea(.all))

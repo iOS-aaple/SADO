@@ -19,7 +19,9 @@ struct AddressView:View {
         
         VStack(alignment: .leading){
                 conformSteps(currentStep: $cuurentStep)
-            Text("Enter Your Shoping Address").padding(.bottom,20)
+            Text("Enter Your Shoping Address")
+                .padding(.bottom,20)
+                .foregroundColor(Color.white)
           
                 HStack{
                     Image("fullName")
@@ -71,7 +73,7 @@ struct AddressView:View {
 
                Spacer()
 
-            }.background(  Image("background")
+            }.background(  Image("background3")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .edgesIgnoringSafeArea(.all))

@@ -29,15 +29,6 @@ struct Checkout:View{
     
    
     var body: some View{
-                
-        
-
-
-//         Picker(selection: $order.avocadoStyle, label: Text("Avocado:")) {
-//            Text("Sliced").tag(AvocadoStyle.sliced)
-//            Text("Mashed").tag(AvocadoStyle.mashed)
-//        }.pickerStyle(RadioGroupPickerStyle())
-//
         
                 VStack{
                     
@@ -52,35 +43,54 @@ struct Checkout:View{
                     }
                         
                     
-                    if paymentType == "paymentType" && currentStep == 3 {
-                        
-                        ApplePayButton(action: {})
-                            .frame(width:50)
-                            .frame(height:45)
-                            .frame(maxWidth:.infinity)
+                    if paymentType == "ApplePay" && currentStep == 3 {
+                        HStack{
+                            ApplePayButton(action: {})
+                                .frame(width:40)
+                                .frame(height:45)
+                                .padding(.trailing,50)
+                                .padding(.leading,20)
+                            
+                            NavigationLink(destination: Cart().navigationBarBackButtonHidden(true)) {
+                                Text("Cancel")
+                            }
+                            .padding()
+                            .background(Color(red: 1, green: 0, blue: 0))
+                            .cornerRadius(10)
+                            .foregroundColor(Color.white)
+                            
+                       }
                             
                     } else{
-                        Button("Confirm and countinue") {
-                            print(paymentType)
-                            currentStep += 1
-                            currentStatus.next()
-                            if !orderStatus.contains(currentStatus) {
-                                currentStatus = currentStatus
-                                orderStatus.append(currentStatus)
+                        HStack{
+                            Button("Confirm and countinue") {
+                             
+                                currentStep += 1
+                                currentStatus.next()
+                                if !orderStatus.contains(currentStatus) {
+                                    currentStatus = currentStatus
+                                    orderStatus.append(currentStatus)
+                                }
                             }
+                            .padding()
+                            .background(Color(red: 0, green: 0, blue: 0))
+                            .clipShape(Capsule())
+                            .foregroundColor(Color.white)
+                            .navigationTitle("Checkout")
+                            
+                            NavigationLink(destination: Cart().navigationBarBackButtonHidden(true)) {
+                                Text("Cancel")
+                            }
+                            .padding()
+                            .background(Color(red: 1, green: 0, blue: 0))
+                            .clipShape(Capsule())
+                            .foregroundColor(Color.black)
+                            
                         }
-                        .padding()
-                        .background(Color(red: 0, green: 0, blue: 0))
-                        .clipShape(Capsule())
-                        .foregroundColor(Color.white)
-                        .navigationTitle("Checkout")
-                    }
-                    
-                    
-                    
+                    } // end of else
         }
-    }
-}
+    }//body 
+}// Checkout
 
 
 struct conformSteps:View {
@@ -102,7 +112,7 @@ struct conformSteps:View {
                 }
             }
         }
-            .frame(height:50,alignment: .center)
+         .frame(height:50,alignment: .center)
     }
 
         }

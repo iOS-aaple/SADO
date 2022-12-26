@@ -120,7 +120,7 @@ struct HomeView: View {
                
                     NavigationLink (
                     destination:
-                        Cart()
+                        Cart().navigationBarBackButtonHidden(true)
                     , label: {
                         TabBar(image: Image( "wallet"))
                     })
