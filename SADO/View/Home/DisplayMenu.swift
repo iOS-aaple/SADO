@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DisplayMenu:View {
    @Binding var selectedCategory:String
+    @Binding var numberOfProducts:Int
     var body: some View{
         ScrollView (.horizontal, showsIndicators: false) {
             //                    HStack {
@@ -18,7 +19,7 @@ struct DisplayMenu:View {
                         if item.category == selectedCategory {
                             NavigationLink (
                                 destination:
-                                    Details(itemdescription: item.description ,itemPhoto: item.img, itemName: item.name, itemPrice: item.price, itemRate: item.rate)
+                                    Details(itemdescription: item.description ,itemPhoto: item.img, itemName: item.name, itemPrice: item.price, itemRate: item.rate,item:item, numberOfProducts: $numberOfProducts)
                                 , label: {
                                     MenuCards(image:Image( item.img), name: item.name, price: item.price)
                                 })
@@ -27,7 +28,7 @@ struct DisplayMenu:View {
                     } else {
                         NavigationLink (
                             destination:
-                                Details(itemdescription: item.description ,itemPhoto: item.img, itemName: item.name, itemPrice: item.price, itemRate: item.rate)
+                                Details(itemdescription: item.description ,itemPhoto: item.img, itemName: item.name, itemPrice: item.price, itemRate: item.rate,item: item,numberOfProducts: $numberOfProducts)
                             , label: {
                                 MenuCards(image:Image( item.img), name: item.name, price: item.price)
                             })

@@ -27,6 +27,8 @@ struct HomeView: View {
 //    let category : [Menu] = [Menu(data: <#T##Data#>)]
     @State private var selectedIndex: Int = 1
     @State var category:String = "All"
+    @State var numberOfProducts: Int = 0
+
     var body: some View {
         NavigationView {
             ZStack{
@@ -67,7 +69,7 @@ struct HomeView: View {
                             .padding()
                             VStack{
                               
-                              DisplayMenu(selectedCategory: $category)
+                              DisplayMenu(selectedCategory: $category,numberOfProducts: $numberOfProducts)
                              
                                 VStack {
                                     Text("Best Seller:")
@@ -82,7 +84,7 @@ struct HomeView: View {
                                             ForEach(mostOrdered) { i in
                                                 NavigationLink (
                                                     destination:
-                                                        Details(itemdescription: i.description ,itemPhoto: i.img, itemName: i.name, itemPrice: i.price, itemRate: i.rate)
+                                                        Details(itemdescription: i.description ,itemPhoto: i.img, itemName: i.name, itemPrice: i.price, itemRate: i.rate,item: i, numberOfProducts: $numberOfProducts)
     //                                                Text(menu.name)
                                                         , label: {
                                                         MenuCards(image:Image( i.img), name: i.name, price: i.price)
@@ -114,7 +116,7 @@ struct HomeView: View {
                    destination:
                     Account()
                   , label: {
-                  TabBar(image: Image(systemName: "person.crop.circle"))
+                  TabBar(image: Image(systemName: "person.crop.circle"),type: "",numberOfProducts: 0)
                                             
                                       })
                
@@ -122,7 +124,7 @@ struct HomeView: View {
                     destination:
                         Cart().navigationBarBackButtonHidden(true)
                     , label: {
-                        TabBar(image: Image( "wallet"))
+                        TabBar(image: Image("shoppingCart"),type: "ShopingCart",numberOfProducts: numberOfProducts)
                     })
                   
                     

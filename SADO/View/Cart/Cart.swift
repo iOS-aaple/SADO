@@ -14,23 +14,18 @@ struct Cart: View {
         
         
     }
-  
-    var cartItems = [
-        Item(id: 0, itemName: "aa"),
-        Item(id: 1, itemName: "AAA"),
-        Item(id: 2, itemName: "AAA"),
-        Item(id: 3, itemName: "AAA"),
-        Item(id: 4, itemName: "AAA"),
-    ]
+   
+    @State var totalPrice:Double = 0
     var body: some View {
-        
+       
         NavigationView{
             
             VStack{
                 List{
-                    ForEach(cartItems) { item in
-                        ItemCell(item: item)
+                    ForEach(myCart) { item in
+                        ItemCell(item: item,count: item.itemCount)
                             .listRowBackground(Color.clear)
+                        
                     }
                 }.frame(height:400)
                     .scrollContentBackground(.hidden)
@@ -77,12 +72,13 @@ struct Item: Identifiable {
 
 
 struct ItemCell: View {
-
-    var item: Item
+    
+   @State var item: Data
+    @State var count:Int
     var body: some View {
 
         ZStack {
-
+    
             RoundedRectangle(cornerRadius: 10)
 //                .fill( .background(Image("background4")))
                 .fill( Color(red: 90/255, green: 90/255, blue: 90/255).opacity(0.6))
@@ -93,19 +89,22 @@ struct ItemCell: View {
 
             HStack{
                 RoundedRectangle(cornerRadius: 10)
-                    .overlay(Image("بخاري").resizable().aspectRatio(contentMode: .fit))
+                    .overlay(Image(item.img).resizable().aspectRatio(contentMode: .fit))
                     .frame(width: 70,height: 70)
                 VStack{
-                    Text(item.itemName)
-                    Text(item.itemName)
+                    Text(item.name)
+                        .foregroundColor(Color.white)
+                    Text("\(item.price) SAR")
+                        .font(.caption2)
+                        .foregroundColor(Color.white)
                 }
                 Spacer()
-                Button("+"){}
-                    .foregroundColor(.white)
-                Text("2")
-                    .foregroundColor(.white)
-                Button("-"){}
-                    .foregroundColor(.white)
+                HStack{
+
+                    Text("X \(count)")
+                    .bold()
+                    .foregroundColor(Color(red: 196/255, green: 181/255, blue: 162/255))
+                }
             }.padding(.all)
         }
     }
@@ -114,6 +113,9 @@ struct ItemCell: View {
 
 
 struct TotalAmount: View {
+//    @Binding var supTotal:Double
+//    @Binding var delivary:Double
+//    @Binding var total:Double
     var body: some View {
         HStack(alignment: .bottom){
             VStack{
@@ -121,7 +123,7 @@ struct TotalAmount: View {
                     Text("Sub Total")
                         .foregroundColor(.gray)
                     Spacer()
-                    Text("200 SR")
+                    Text("150 SR")
                         .foregroundColor(.gray)
                 }.padding(.bottom,10)
                 HStack{
@@ -136,7 +138,8 @@ struct TotalAmount: View {
                     Text("Total Price")
                         .foregroundColor(.gray)
                     Spacer()
-                    Text("250 SR")
+                    
+                    Text("200 SR")
                         .foregroundColor(.gray)
                 }.padding(.bottom,10)
             }
@@ -160,13 +163,13 @@ struct TotalAmount: View {
             .padding(.bottom, 55)
           
     }
-    init() {
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithTransparentBackground()
-        appearance.backgroundColor = .clear
-        appearance.shadowColor = .clear
-        UINavigationBar.appearance().standardAppearance = appearance
-     }
+//    init() {
+//        let appearance = UINavigationBarAppearance()
+//        appearance.configureWithTransparentBackground()
+//        appearance.backgroundColor = .clear
+//        appearance.shadowColor = .clear
+//        UINavigationBar.appearance().standardAppearance = appearance
+//     }
 }
 
 
@@ -175,3 +178,6 @@ struct Cart_Previews: PreviewProvider {
         Cart()
     }
 }
+
+
+

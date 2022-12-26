@@ -62,13 +62,37 @@ struct HeadTitle: View {
 //MARK: - tab bar
 struct TabBar: View {
     let image: Image
+    let type:String
+    var numberOfProducts:Int
     var body: some View {
-        HStack{
-            image
-                 .resizable()
-                 .accentColor(.black)
-                 .frame(width: 33,height: 30)
-                 .frame(maxWidth: 150)
+        if type == "ShopingCart"{
+            ZStack(alignment: .topTrailing){
+                image
+                    .resizable()
+                    .accentColor(.black)
+                    .frame(width: 33,height: 30)
+                    .frame(maxWidth: 150)
+                
+                Text("\(numberOfProducts)")
+                    .foregroundColor(Color.white)
+                    .font(.caption2).bold()
+                //                .background(Color.red)
+                    .frame(width: 15,height: 15)
+                    .background(
+                        Circle().fill(Color.red)
+                        //                        .stroke(Color.red, lineWidth: 4)
+                        
+                        
+                    )
+            }
+        } else{
+            HStack{
+                       image
+                            .resizable()
+                            .accentColor(.black)
+                            .frame(width: 33,height: 30)
+                            .frame(maxWidth: 150)
+                   }
         }
     }
 }
