@@ -9,14 +9,11 @@ import SwiftUI
 
 struct PaymentView :View {
     @Binding var currentStep :Int
-    @State  var payemntByCreditCard:Bool = true
-    @State  var paymentByApplePay: Bool = false
-    @State var radioButtonID :Int = 1
     @Binding var creditCardName: String
     @Binding var creditCardNumber: String
     @Binding var creditCardExDate:String
     @Binding var creditCardCVV: String
-    @State var checked: Bool = false
+    @State var checked: Bool = true
     @Binding var paymentType: String
     var body: some View{
         
@@ -32,12 +29,18 @@ struct PaymentView :View {
                 
                 HStack{
                     Button {
-                        paymentByApplePay = false
-                        payemntByCreditCard = true
+                        checked = true
                         paymentType = "CreditCard"
                         
                     } label: {
-                         RadioButton(checked: $payemntByCreditCard)
+                        ZStack{
+                            Circle()
+                                .fill(checked ? Color.blue :Color.white)
+                                .frame(width: 20, height: 20)
+                            Circle()
+                                .fill(Color.white)
+                                .frame(width: 8, height: 8)
+                        }
                     }
                     Text("Credit Card")
                         .foregroundColor(Color.white)
@@ -81,11 +84,21 @@ struct PaymentView :View {
                 
                 HStack{
                     Button(action: {
-                        paymentByApplePay = true
-                        payemntByCreditCard = false
-                          paymentType = "ApplePay"
+                        checked = false
+                        paymentType = "ApplePay"
+                        
                         print(paymentType)
-                    }, label: { RadioButton(checked: $paymentByApplePay)})
+                        print(paymentType)
+                    }, label: {
+                        ZStack{
+                            Circle()
+                                .fill(checked ? Color.white :Color.blue)
+                                .frame(width: 20, height: 20)
+                            Circle()
+                                .fill(Color.white)
+                                .frame(width: 8, height: 8)
+                        }
+                    })
                   
                     Text("Apple Pay")
                         .foregroundColor(Color.white)
@@ -104,46 +117,3 @@ struct PaymentView :View {
                 .edgesIgnoringSafeArea(.all))
     }
 }
-
-
-struct RadioButton: View {
-    @Binding var checked: Bool    //the variable that determines if its checked
-   
-    var body: some View {
-//        Group{
-        
-            if checked {
-                
-                ZStack{
-                    Circle()
-                        .fill(Color.blue)
-                        .frame(width: 20, height: 20)
-                    Circle()
-                        .fill(Color.white)
-                        .frame(width: 8, height: 8)
-                }.onTapGesture {self.checked = false}
-            } else {
-                Circle()
-                    .fill(Color.white)
-                    .frame(width: 20, height: 20)
-                    .overlay(Circle().stroke(Color.gray, lineWidth: 1))
-                    .onTapGesture {self.checked = true}
-            }
-//        }
-    }
-    
-    
-}
-
-//struct aa: View {
-//    @State var a1:Int = 1
-//    var body: some View{
-//        PaymentView(currentStep: $a1)
-//    }
-//}
-//
-//struct Payment_Previews: PreviewProvider {
-//    static var previews: some View {
-//       aa()
-//    }
-//}
