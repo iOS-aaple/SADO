@@ -120,7 +120,7 @@ struct SearchView: View {
 struct MenuCards: View {
     let image: Image
     let name: String
-    let price: String
+    let price: Int
     var body: some View {
         VStack{
             GeometryReader { geometry in
@@ -135,7 +135,7 @@ struct MenuCards: View {
                             .font(.system(size: 20, weight: .regular, design: .serif))
                             .shadow(radius: 0.9)
                             .padding(-15)
-                        Text(price)
+                        Text("\(price) SAR")
                             .padding()
                     }
                 }

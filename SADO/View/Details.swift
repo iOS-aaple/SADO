@@ -14,12 +14,12 @@ struct Details_Previews: PreviewProvider {
 }
 
 struct Details: View {
-    
+
     // vars
     @State var itemdescription : String = ""
     @State var itemPhoto : String = ""
     @State var itemName : String = ""
-    @State var itemPrice : String = ""
+    @State var itemPrice : Int = 0
     @State var itemRate : String = ""
     
     @State var itemCount : Int = 0
@@ -110,7 +110,7 @@ struct itemDescription : View {
 
 struct outlineView :View {
     @Binding var itemCount : Int
-    @Binding var itemPrice : String
+    @Binding var itemPrice : Int
     var body: some View{
         ZStack(alignment: .leading){
             HStack{
@@ -119,7 +119,7 @@ struct outlineView :View {
                     .font(.system(size: 15, design: .serif))
                     .foregroundColor(Color(red: 196/255, green: 181/255, blue: 162/255))
                     
-                    Text("\(itemPrice)")
+                    Text("\(itemPrice * itemCount) SAR ")
                         .bold()
                     .foregroundColor(Color(red: 196/255, green: 181/255, blue: 162/255))
                     .font(.system(size: 18, design: .serif))
